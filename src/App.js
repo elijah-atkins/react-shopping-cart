@@ -7,7 +7,8 @@ import Navigation from './components/Navigation';
 import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
 
-import { productContext } from "./contexts/productContext"
+import { productContext } from "./contexts/productContext";
+import { cartContext } from './contexts/cartContext';
 
 console.log("ea: App.js: shoppingContext: ", productContext);
 
@@ -24,7 +25,8 @@ function App() {
 	return (
 		<div className="App">
 		<productContext.Provider value={{ products, addItem }}>
-			<Navigation cart={cart} />
+		<cartContext.Provider value={{ cart }}>
+			<Navigation />
 
 			{/* Routes */}
 			<Route exact path="/">
@@ -32,8 +34,9 @@ function App() {
 			</Route>
 
 			<Route path="/cart">
-				<ShoppingCart cart={cart} />
+				<ShoppingCart />
 			</Route>
+			</cartContext.Provider>
 			</productContext.Provider>
 		</div>
 	);
