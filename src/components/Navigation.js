@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navigation = props => {
+const Navigation = (props) => {
+	console.log("ea: navigation.js props:", props)
 	return (
 		<div className="navigation">
 			<NavLink to="/">Products</NavLink>
